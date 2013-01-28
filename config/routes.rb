@@ -1,6 +1,11 @@
 Masterit::Application.routes.draw do
-  scope :module => :web do
-    root :to => 'welcome#index'
+ 
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  root :to => "welcome#show"
+
+  scope module: :web do
+    root to: 'welcome#show'
   end
 
 end
