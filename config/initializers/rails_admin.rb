@@ -4,9 +4,7 @@ require 'i18n'
 I18n.default_locale = :ru
 
 RailsAdmin.config do |config|
-  config.assets.initialize_on_precompile = false
-  config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
-
+  
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
