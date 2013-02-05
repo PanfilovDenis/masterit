@@ -1,0 +1,17 @@
+= simple_form_for @competition, url: url do |f|
+  - if @competition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@competition.errors.count, "error")} prohibited this competition from being saved:"
+      %ul
+        - @competition.errors.full_messages.each do |msg|
+          %li= msg
+  .tab-content
+    .tab-pane.active
+      = f.input :year, input_html: { class: 'input-xxlarge' }
+      .row
+        .span4
+  .form-actions
+    = f.button :submit, t('.submit'), class: 'btn btn-primary'
+    = link_to t('.cancel'), competitions_path, class: 'btn'
+    = link_to t('.delete'), competition_path(@competition), method: :delete, class: 'btn btn-danger pull-right',
+      data: { confirm: t('.delete_confirm') }

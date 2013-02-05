@@ -1,0 +1,34 @@
+%h1= t '.competitions'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('.year')
+      %th= t('.state')
+  %tbody
+    - @competitions.each do |competition|
+      %tr
+        %td= competition.year
+        %td= competition.human_state_name
+        %td
+          .pull-right.btn-group
+            = link_to competition_path(competition),
+              title: t('.show_competition'),
+              class: 'btn btn-mini' do
+              %i.icon-user
+            = link_to edit_competition_path(competition),
+              title: t('.edit_competition'),
+              class: 'btn btn-mini' do
+              %i.icon-pencil
+            = link_to competition, method: :delete, 
+              title: t('.destroy_competition'),
+              class: 'btn btn-mini',
+              data: { confirm: 'Are you sure?' } do
+              %i.icon-trash
+    %tr
+      %td
+        = link_to new_competition_path,
+          class: 'btn btn-block btn-success' do
+          %i.icon-plus
+          = t '.add_competition'
+

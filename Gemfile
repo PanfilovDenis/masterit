@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem "devise"
 gem "cancan"
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -28,5 +29,5 @@ end
 group :test do
   gem 'minitest'
   gem 'tconsole'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', require: false
 end

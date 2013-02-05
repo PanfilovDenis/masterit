@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 2012
+  state: activated
+
+two:
+  year: 2007
+  state: deactivated

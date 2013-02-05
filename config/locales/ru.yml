@@ -1,4 +1,41 @@
 ru:
+  activerecord:
+    attributes:
+      competition:
+        year: "Год"
+        state: "Статус"
+        state_event: "Сменить статус"
+      tour: 
+        name: "Тур"
+    state_machines:
+      competition:
+        state:
+          states:
+            new: "Новый"
+            activated: "Открыт"
+            deactivated: "Закрыт"
+          events:
+            activate: "Открыть"
+            deactivate: "Закрыть"
+  competitions:
+    index:
+      competitions: "Конкурсы"
+      year: "Год"
+      add_competition: "Добавить конкурс"
+      edit_competition: "Редактировать"
+      show_competition: "Показать"
+      destroy_competition: "Удалить" 
+    show:
+    edit:
+      edit_competition: "Редактирование конкурса"
+    new:
+      new_competition: "Создание конкурса"
+    form:
+      competition: "Конкурс"
+      submit: "Сохранить" 
+      cancel: "Отмена"
+      delete: "Удалить"
+      delete_confirm: "Точно удалить" 
   errors:
     messages:
       expired: "устарела. Пожалуйста, запросите новую"
