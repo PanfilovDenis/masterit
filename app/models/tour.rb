@@ -1,5 +1,8 @@
 class Tour < ActiveRecord::Base
-  attr_accessible :type
-  has_many :competition_tours
-  has_many :competitions, :through => :competition_tours
+  include UsefullScopes
+  attr_accessible :name
+
+  def can_destroy?
+    persisted?
+  end
 end

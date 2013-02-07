@@ -13,13 +13,9 @@
 
 ActiveRecord::Schema.define(:version => 20130131224111) do
 
-  create_table "competition_tours", :force => true do |t|
-    t.integer "competition_id"
-    t.integer "tour_id"
-  end
-
   create_table "competitions", :force => true do |t|
     t.integer  "year"
+    t.integer  "tour"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "state"
@@ -39,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20130131224111) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "tours", :force => true do |t|
-    t.string "type"
+    t.string "name"
   end
 
   create_table "users", :force => true do |t|

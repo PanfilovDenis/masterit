@@ -1,4 +1,21 @@
 ru:
+  flash:
+    controllers:
+      competitions:
+        create:
+          error: "При добавлении конкурса возникли ошибки"
+          success: "Конкурс добавлен"
+        update:
+          error: "При добавлении конкурса возникли ошибки"
+          success: "Конкурс добавлен"
+        destroy:
+          error: "При удалении  конкурса возникли ошибки"
+          success: "Конкурс добавлен"
+
+  layouts:
+    application:
+      competitions: "Конкурсы"
+
   activerecord:
     attributes:
       competition:
@@ -20,6 +37,7 @@ ru:
   competitions:
     index:
       competitions: "Конкурсы"
+      state: "Статус"
       year: "Год"
       add_competition: "Добавить конкурс"
       edit_competition: "Редактировать"

@@ -7,11 +7,11 @@
           %li= msg
   .tab-content
     .tab-pane.active
-      = f.input :year, input_html: { class: 'input-xxlarge' }
-      .row
-        .span4
+      = f.input :year, as: :competition_year, include_blank: false, input_html: { class: 'input-medium' }
+      = f.input :state_event, as: :state_event
   .form-actions
     = f.button :submit, t('.submit'), class: 'btn btn-primary'
     = link_to t('.cancel'), competitions_path, class: 'btn'
-    = link_to t('.delete'), competition_path(@competition), method: :delete, class: 'btn btn-danger pull-right',
-      data: { confirm: t('.delete_confirm') }
+    - if @competition.can_destroy?
+      = link_to t('.delete'), competition_path(@competition), method: :delete, class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }
