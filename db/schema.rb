@@ -11,11 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131224111) do
+ActiveRecord::Schema.define(:version => 20130208184121) do
+
+  create_table "catalogs", :force => true do |t|
+    t.integer  "tour_id"
+    t.integer  "competition_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "competitions", :force => true do |t|
     t.integer  "year"
-    t.integer  "tour"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "state"

@@ -22,6 +22,7 @@ ru:
         year: "Год"
         state: "Статус"
         state_event: "Сменить статус"
+        tour: "Туры"
       tour: 
         name: "Тур"
     state_machines:
@@ -44,6 +45,8 @@ ru:
       show_competition: "Показать"
       destroy_competition: "Удалить" 
     show:
+      competition: "Конкурс %{comp_year} года"
+      tours: "Туры"
     edit:
       edit_competition: "Редактирование конкурса"
     new:

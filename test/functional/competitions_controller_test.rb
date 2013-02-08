@@ -11,10 +11,6 @@ class CompetitionsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:competitions)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
 
   test "should create competition" do
     assert_difference('Competition.count') do
@@ -29,10 +25,6 @@ class CompetitionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @competition
-    assert_response :success
-  end
 
   test "should update competition" do
     put :update, id: @competition, competition: { year: @competition.year }

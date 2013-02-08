@@ -1,7 +1,8 @@
 class Competition < ActiveRecord::Base
   include UsefullScopes 
-  attr_accessible :year, :tour_id, :state_event
-  belongs_to :tour
+  attr_accessible :year, :state_event
+  has_many :catalogs
+  has_many :tours, :through => :catalogs
   state_machine :state, initial: :new do
     state :new
     state :activated

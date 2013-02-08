@@ -1,3 +1,10 @@
-%h1= @competition.year
-!= @competition.human_state_name
-
+.span6
+  %h1=t '.competition', :comp_year => @competition.year
+  .span6
+    != @competition.human_state_name
+.span6
+  %h4= t(".tours")
+- @competition.tours.each do |t|
+  .span6
+    .span6
+      %p=t.name
