@@ -10,20 +10,7 @@ one:
   city: MyString
   school: MyString
   area: MyString
-  class: MyString
-  url_work: MyString
-  email: MyString
-  phone: MyString
-
-two:
-  name: MyString
-  nominate: MyString
-  picture: MyString
-  description: MyText
-  city: MyString
-  school: MyString
-  area: MyString
-  class: MyString
+  name_class: MyString
   url_work: MyString
   email: MyString
   phone: MyString
