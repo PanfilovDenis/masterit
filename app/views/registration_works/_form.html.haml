@@ -1,0 +1,20 @@
+= simple_form_for(@registration_work) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :nominate
+    = f.input :picture
+    = f.input :description
+    = f.input :supervizor
+    = f.input :partners
+    = f.input :city
+    = f.input :school
+    = f.input :area
+    = f.input :name_class
+    = f.input :url_work
+    = f.input :email
+    = f.input :phone
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,43 @@
+%h1 Listing registration_works
+
+%table
+  %tr
+    %th Name
+    %th Nominate
+    %th Picture
+    %th Description
+    %th Supervizor
+    %th Partners
+    %th City
+    %th School
+    %th Area
+    %th Class
+    %th Url work
+    %th Email
+    %th Phone
+    %th 
+    %th
+    %th
+
+  - @registration_works.each do |registration_work|
+    %tr
+      %td= registration_work.name
+      %td= registration_work.nominate
+      %td= registration_work.picture
+      %td= registration_work.description
+      %td= registration_work.supervizor
+      %td= registration_work.partners
+      %td= registration_work.city
+      %td= registration_work.school
+      %td= registration_work.area
+      %td= registration_work.name_class
+      %td= registration_work.url_work
+      %td= registration_work.email
+      %td= registration_work.phone
+      %td= link_to 'Show', registration_work
+      %td= link_to 'Edit', edit_registration_work_path(registration_work)
+      %td= link_to 'Destroy', registration_work, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Registration work', new_registration_work_path

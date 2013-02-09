@@ -1,0 +1,19 @@
+%h1 Listing nominates
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @nominates.each do |nominate|
+    %tr
+      %td= nominate.name
+      %td= link_to 'Show', nominate
+      %td= link_to 'Edit', edit_nominate_path(nominate)
+      %td= link_to 'Destroy', nominate, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Nominate', new_nominate_path

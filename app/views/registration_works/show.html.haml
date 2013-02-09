@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @registration_work.name
+%p
+  %b Nominate:
+  = @registration_work.nominate
+%p
+  %b Picture:
+  = @registration_work.picture
+%p
+  %b Description:
+  = @registration_work.description
+%p
+  %b Supervizor:
+  = @registration_work.supervizor
+%p
+  %b Partners:
+  = @registration_work.partners
+%p
+  %b City:
+  = @registration_work.city
+%p
+  %b School:
+  = @registration_work.school
+%p
+  %b Area:
+  = @registration_work.area
+%p
+  %b Class:
+  = @registration_work.name_class
+%p
+  %b Url work:
+  = @registration_work.url_work
+%p
+  %b Email:
+  = @registration_work.email
+%p
+  %b Phone:
+  = @registration_work.phone
+
+= link_to 'Edit', edit_registration_work_path(@registration_work)
+\|
+= link_to 'Back', registration_works_path
