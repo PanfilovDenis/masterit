@@ -1,0 +1,19 @@
+%h1= t '.competitions'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('.year')
+      %th= t('.state')
+  %tbody
+    - @competitions.each do |competition|
+      %tr
+        %td= competition.year
+        %td= competition.human_state_name
+        %td
+          .pull-right.btn-group
+            = link_to competition_path(competition),
+              title: t('.show_competition'),
+              class: 'btn btn-mini' do
+              %i.icon-user
+

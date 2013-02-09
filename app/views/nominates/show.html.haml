@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @nominate.name
+
+= link_to 'Edit', edit_nominate_path(@nominate)
+\|
+= link_to 'Back', nominates_path

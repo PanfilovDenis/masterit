@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  nominate: MyString
+  picture: MyString
+  description: MyText
+  supervizor: MyString
+  partners: MyString
+  city: MyString
+  school: MyString
+  area: MyString
+  name_class: MyString
+  url_work: MyString
+  email: MyString
+  phone: MyString
