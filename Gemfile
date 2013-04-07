@@ -30,6 +30,8 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'social-share-button'
+gem 'inkwell'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :plagiat_details
   has_many :works, through: :plagiat_details
 
+  acts_as_inkwell_user
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

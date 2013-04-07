@@ -99,6 +99,9 @@ GEM
     hpricot (0.8.6)
     httpauth (0.2.0)
     i18n (0.6.1)
+    inkwell (1.5.1)
+      activerecord (>= 3.1.0)
+      railties (>= 3.1.0)
     journey (1.0.4)
     jquery-rails (2.2.0)
       railties (>= 3.0, < 5.0)
@@ -294,6 +297,7 @@ DEPENDENCIES
   haml-rails
   heroku
   hpricot
+  inkwell
   jquery-rails
   less-rails
   localtunnel
