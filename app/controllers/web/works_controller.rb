@@ -16,4 +16,12 @@ class Web::WorksController < Web::ApplicationController
       render :action => :new
     end
   end
+
+  def index
+    @works = Work.scoped
+  end
+
+  def show
+    @work = Work.find params[:id]
+  end
 end

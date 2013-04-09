@@ -45,4 +45,8 @@ class User < ActiveRecord::Base
     [last_name, first_name].compact.join(" ")
   end
 
+  def to_s
+    "#{last_name} #{first_name}"
+  end
+
 end

@@ -15,6 +15,7 @@ class Work < ActiveRecord::Base
   belongs_to :tour
   belongs_to :region
   belongs_to :work_nomination
+  has_many :comments
 
   accepts_nested_attributes_for :sources, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :videos, :reject_if => :all_blank, :allow_destroy => true

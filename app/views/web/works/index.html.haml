@@ -1,0 +1,14 @@
+%h2= t('.work_list')
+.row
+
+  - @works.each do |work|
+    .span6
+      %h3= work.name
+    .span2
+      %h6= link_to "Просмотреть", work_path(work)
+    .span8
+      %h5= work.description
+    .span8
+      %h6
+        = work.user
+        = "Работа добавлена: #{work.created_at}"

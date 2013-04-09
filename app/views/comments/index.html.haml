@@ -1,0 +1,13 @@
+%h4= t(".comments")
+.row
+  .span10
+    -@comments.try(:each) do |comment|
+      .row
+        .span6
+          = "#{comment.user.last_name} #{comment.user.first_name}"
+        .span4
+          = t(".commented")
+          = comment.updated_at
+      .row
+        .span10
+          = comment.body
