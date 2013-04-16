@@ -4,6 +4,6 @@ class Web::CommentsController < Web::ApplicationController
     @work = Work.find params[:comment][:work_id]
     @user.create_comment for_object: @work, body: params[:comment][:body]
 
-    redirect_to works_path params[:comment][:work_id]
+    redirect_to work_path(params[:comment][:work_id])
   end
 end

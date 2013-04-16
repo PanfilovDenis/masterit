@@ -6,11 +6,12 @@
         .span6
           = "#{comment.user.last_name} #{comment.user.first_name}"
         .span4
-          = t(".commented")
           = comment.updated_at
       .row
         .span10
           = comment.body
+  .span10
+    %h4= "Оставьте комментарий"
   .span10
     -if current_user
       =render 'posts/form', work: @work, comments: @comments
