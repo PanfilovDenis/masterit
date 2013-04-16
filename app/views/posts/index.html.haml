@@ -11,3 +11,8 @@
       .row
         .span10
           = comment.body
+  .span10
+    -if current_user
+      =render 'posts/form', work: @work, comments: @comments
+    -else
+      %h6= "Чтобы оставить комментарий - войдите в систему"

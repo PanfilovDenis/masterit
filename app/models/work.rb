@@ -44,4 +44,6 @@ class Work < ActiveRecord::Base
   def to_s
     name
   end
+  acts_as_inkwell_post
+
 end

@@ -23,5 +23,7 @@ class Web::WorksController < Web::ApplicationController
 
   def show
     @work = Work.find params[:id]
+    @comments = @work.commentline
+    @new_comment = Inkwell::Comment.new
   end
 end

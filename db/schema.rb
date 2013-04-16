@@ -165,15 +165,6 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.string   "owner_type"
   end
 
-  create_table "posts", :force => true do |t|
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.text     "users_ids_who_favorite_it", :default => "[]"
-    t.text     "users_ids_who_comment_it",  :default => "[]"
-    t.text     "users_ids_who_reblog_it",   :default => "[]"
-    t.integer  "work_id"
-  end
-
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -279,6 +270,9 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.string   "plagiat_state"
     t.string   "estimate_state"
     t.integer  "participant_id"
+    t.text     "users_ids_who_favorite_it", :default => "[]"
+    t.text     "users_ids_who_comment_it",  :default => "[]"
+    t.text     "users_ids_who_reblog_it",   :default => "[]"
   end
 
 end
