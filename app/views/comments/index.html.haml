@@ -2,15 +2,11 @@
 .row
   .span10
     -@comments.try(:each) do |comment|
-      .row
-        .span6
-          = "#{comment.user.last_name} #{comment.user.first_name}"
-        .span3
-          = comment.updated_at
-        -if comment.user_id == current_user.id
-          .span1
-            = link_to comment_path(id: comment, work_id: @work), :method => :delete do
-              %i.icon-trash
+      = "#{comment.user.last_name} #{comment.user.first_name}"
+      = comment.updated_at.strftime("%d.%m.%Y %H:%M")
+      -if comment.user_id == current_user.id
+        = link_to comment_path(id: comment, work_id: @work), :method => :delete do
+          %i.icon-trash
       .row
         .span10
           = comment.body
