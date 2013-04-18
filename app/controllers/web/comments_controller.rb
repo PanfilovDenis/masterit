@@ -6,4 +6,10 @@ class Web::CommentsController < Web::ApplicationController
 
     redirect_to work_path(params[:comment][:work_id])
   end
+
+  def destroy
+    comment = ::Inkwell::Comment.find params[:id]
+    comment.destroy
+    redirect_to work_path params[:work_id]
+  end
 end

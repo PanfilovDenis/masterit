@@ -13,8 +13,7 @@
     %br
     != @work.description
 
-
-%a{:href => "http://vkontakte.ru/share.php?url=http://mysite.com", :target => "_blank"} 
+%a{:href => "http://vkontakte.ru/share.php?url=http://mysite.com", :target => "_blank"}
   %img{:src => "http://vk.com/images/vk16.png"}
 = social_share_button_tag(@work)
 =render template:'comments/index' , comments: @work.comments

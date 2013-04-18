@@ -136,6 +136,6 @@ Masterit::Application.routes.draw do
     resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
     resources :works
-    resource :comments
+    resources :comments
   end
 end

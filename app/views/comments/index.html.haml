@@ -5,8 +5,12 @@
       .row
         .span6
           = "#{comment.user.last_name} #{comment.user.first_name}"
-        .span4
+        .span3
           = comment.updated_at
+        -if comment.user_id == current_user.id
+          .span1
+            = link_to comment_path(id: comment, work_id: @work), :method => :delete do
+              %i.icon-trash
       .row
         .span10
           = comment.body
@@ -14,6 +18,6 @@
     %h4= "Оставьте комментарий"
   .span10
     -if current_user
-      =render 'posts/form', work: @work, comments: @comments
+      =render 'comments/form', work: @work, comments: @comments
     -else
       %h6= "Чтобы оставить комментарий - войдите в систему"
