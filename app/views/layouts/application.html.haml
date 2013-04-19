@@ -25,6 +25,7 @@
                   = item :li, menu_item.title, page_path(menu_item.pages.first)
               - if user_signed_in?
                 - if current_user.role? :admin
+                  %li= link_to "rAdmin", rails_admin_path
                   %li= link_to "Админка", admin_root_path
                 
                 %li= link_to "#{current_user.email}", user_path(current_user)
