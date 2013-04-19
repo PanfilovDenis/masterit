@@ -1,4 +1,119 @@
 ru:
+  new: &new Добавить
+  cancel: &cancel Отмена
+  confirm: &confirm Вы уверены?
+  layouts:
+    web:
+      admin:
+        application:
+          work_nominations: Номинации
+          works: Работы
+          regions: Регионы
+          tours: Туры
+          users: Пользователи
+          completitions: Конкурсы
+          menu: Динамическое меню
+  web:
+    admin:
+      welcome:
+        index:
+          title: "Добро пожаловать, Администратор!"
+      menu_items:
+        index:
+          confirm: *confirm
+          title: &menu_items Элементы в меню
+          new: *new
+          pages: Страницы
+          new_page: Новая страница
+        new:
+          title: Добавление элементов в меню
+        edit:
+          title: *menu_items
+        form:
+          cancel: *cancel
+        pages:
+          index:
+            title: &pages Страницы в меню
+            confirm: *confirm
+            new: *new
+          new:
+            title: Создание страницы
+          edit:
+            title: Редактирование страницы
+          form:
+            cancel: *cancel
+      tours:
+        index:
+          confirm: *confirm
+          title: &tours Туры
+          new: *new
+        new:
+          title: Добавить тур
+        edit:
+          title: Редактировать тур
+        form:
+          cancel: *cancel
+      work_nominations:
+        index:
+          confirm: *confirm
+          title: &work_nominations Номинации
+          new: *new
+        new:
+          title: Добавить номинацию
+        edit:
+          title: Редактировать номинацию
+        form:
+          cancel: *cancel
+      works:
+        index:
+          confirm: *confirm
+          title: &works Работы
+          new: *new
+        new:
+          title: Добавить работу
+        edit:
+          title: Редактировать работу
+        form:
+          cancel: *cancel
+      regions:
+        index:
+          confirm: *confirm
+          title: &regions Регионы
+          new: *new
+        new:
+          title: Добавить регион
+        edit:
+          title: Редактировать регион
+        form:
+          cancel: *cancel
+      users:
+        index:
+          confirm: *confirm
+          title: &users Пользователи
+          new: *new
+        new:
+          title: Добавить пользователя
+        edit:
+          title: Редактировать пользователя
+        form:
+          cancel: *cancel    
+      completitions:
+        index:
+          confirm: *confirm
+          title: &completitions Конкурсы
+          new: *new
+        new:
+          title: Добавить конкурс
+        edit:
+          title: Редактировать конкурс
+        form:
+          cancel: *cancel
+    users:
+      show:
+        info: Мои данные
+        my_works: Мои работы
+        my_accounts: Мои аккаунты
+        
   activerecord:
     attributes:
       user:
@@ -13,6 +128,31 @@ ru:
         name: Название работы
         image: Обложка
         description: Описание
+        tour_id: Тур
+        region_id: Регион
+        work_nomination: Номинация
+        tour: Тур
+        region: Регион
+        user_id: Пользователь
+      work_nomination:
+        name: Название номинации
+        state: Статус
+        state_event: Статус
+      region:
+        name: Название региона
+        state: Статус
+        state_event: Статус
+      tour:
+        name: Название тура
+        state: Статус
+        state_event: Статус
+      completition:
+        name: Название конкурса
+        year: Год
+        tour: Тур
+        tour_id: Тур
+        state: Статус
+        state_event: Статус
       image:
         name: Название изображения
         url: Ссылка

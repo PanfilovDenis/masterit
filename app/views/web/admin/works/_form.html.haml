@@ -1,0 +1,26 @@
+= simple_form_for @work, :url => url, :html => {:class => "form-horizontal"}do |f|
+  = f.input :name
+  = f.input :image
+  = f.input :description, as: :string
+  = f.association :tour
+  = f.association :region
+  = f.association :work_nomination
+  = f.input :user_id, as: :hidden, input_html: { value:  current_user.id }
+  %hr
+  = f.simple_fields_for :sources do |u|
+    = render 'source_fields', :f => u
+  .links.control-group
+    = link_to_add_association t('add_source'), f, :sources
+
+  = f.simple_fields_for :videos do |u|
+    = render 'video_fields', :f => u
+  .links.control-group
+    = link_to_add_association t('add_video'), f, :videos
+
+  = f.simple_fields_for :images do |u|
+    = render 'image_fields', :f => u
+  .links.control-group
+    = link_to_add_association t('add_image'), f, :images
+
+  .form-actions
+    = f.button :submit

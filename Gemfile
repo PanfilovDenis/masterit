@@ -22,7 +22,13 @@ gem 'ruby_parser'
 gem 'unicorn'
 gem 'configus'
 gem "cocoon"
-
+gem "ransack"
+gem 'state_machine'
+gem 'ancestry'
+gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'ckeditor'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -1,0 +1,41 @@
+!!! 5
+%html(lang="ru")
+  = render 'layouts/web/admin/shared/head'
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand(href="#") Masterit
+          .container.nav-collapse
+            %ul.nav.pull-right
+              - if user_signed_in?
+                - if current_user.role? :admin
+                  -#%li= link_to "Админка", admin_root_path
+                  
+                  %li= link_to t('.work_nominations'), admin_work_nominations_path
+                  %li= link_to t('.works'), admin_works_path
+                  %li= link_to t('.regions'), admin_regions_path
+                  %li= link_to t('.completitions'), admin_completitions_path
+                  %li= link_to t('.tours'), admin_tours_path
+                  %li= link_to t('.users'), admin_users_path
+                  %li= link_to t('.menu'), admin_menu_items_path
+                
+                %li= link_to "#{current_user.email}", user_path(current_user)
+                %li= link_to "Выход", destroy_user_session_path, :method => :delete
+              - else
+                %li= link_to "Вход", new_user_session_path
+
+    - if user_signed_in?
+      - if current_user.role? :admin
+        .container
+          .content
+            = render 'layouts/web/admin/shared/title'
+            = bootstrap_flash
+            = yield
+
+
+        -#= render 'layouts/web/admin/shared/footer'

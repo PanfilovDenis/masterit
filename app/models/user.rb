@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
   def role?(role)
     self.role == role.to_s
   end
+  
+  def to_s
+    [last_name, first_name].compact.join(" ")
+  end
 
 end

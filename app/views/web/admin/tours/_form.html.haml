@@ -1,0 +1,6 @@
+= simple_form_for @tour, :url => url, :html => { :class => 'default_class' } do |f|
+  = f.input :state_event, as: :state_event
+  = f.input :name
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to t('.cancel'), admin_tours_path, :class => 'btn'

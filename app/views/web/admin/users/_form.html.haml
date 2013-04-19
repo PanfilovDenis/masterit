@@ -1,0 +1,9 @@
+= simple_form_for @user, :url => url, :html => { :class => 'default_class' } do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :patronymic
+  = f.input :email
+  = f.input :password
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to t('.cancel'), user_path(@user), :class => 'btn'

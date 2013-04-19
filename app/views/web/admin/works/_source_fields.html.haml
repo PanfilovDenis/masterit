@@ -1,0 +1,6 @@
+.control-group.nested-fields
+  = link_to_remove_association f, class: 'close' do
+    %i.icon-trash
+  = f.input :name
+  = f.input :url
+  = f.input :description, as: :string

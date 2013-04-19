@@ -1,0 +1,6 @@
+= simple_form_for @work_nomination, :url => url, :html => { :class => 'default_class' } do |f|
+  = f.input :state_event, as: :state_event
+  = f.input :name
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to t('.cancel'), admin_work_nominations_path, :class => 'btn'
