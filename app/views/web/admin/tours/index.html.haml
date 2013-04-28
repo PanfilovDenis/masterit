@@ -1,4 +1,4 @@
-= link_to t('.new'), new_admin_tour_path, :class => 'btn btn-primary'
+= link_to t('.new'), new_admin_tour_path, class: 'btn btn-primary'
 
 %table.table.table-striped
   %thead
@@ -17,7 +17,7 @@
           .pull-right.btn-group
             = link_to edit_admin_tour_path(item), :class => 'btn btn-mini' do
               %i.icon-pencil
-            = link_to admin_tour_path(item), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger' do
+            = link_to admin_tour_path(item), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger' do
               %i.icon-trash
 
 = paginate @tours

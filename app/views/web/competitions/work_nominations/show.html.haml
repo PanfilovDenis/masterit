@@ -1,0 +1,26 @@
+.row
+  .span3
+    .well.well-small
+      %ul.nav.nav-pills.nav-stacked
+        %li.nav-header= resource_competition
+        - @work_nominations.each do |wn|
+          = item :li, wn, competition_work_nomination_path(@competition, wn)
+  .span9
+    %h3= @work_nomination
+    %ul.thumbnails
+      - @work_nomination.works.each do |work|
+        %li.span3
+          .thumbnail
+            -#= image_tag work.avatar.thumb.url
+            .caption
+              = "Название работы:" 
+              = link_to work, work_path(work)
+              %br
+              = "ФИО: #{User.find(work.user_id)}"
+              %br
+              = "Регион: #{Region.find(work.region_id)}"
+              %br
+              = "Тур: #{Tour.find(work.tour_id)}"
+-#= paginate @works
+    
+-#= paginate @work_nominations

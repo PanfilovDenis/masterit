@@ -1,0 +1,13 @@
+%h3= @work
+.row
+  .span3= image_tag @work.image
+  .span7
+    = "Название работы: #{@work}"
+    %br
+    = "ФИО: #{User.find(@work.user_id)}"
+    %br
+    = "Регион: #{Region.find(@work.region_id)}"
+    %br
+    = "Тур: #{Tour.find(@work.tour_id)}"
+    %br
+    != @work.description

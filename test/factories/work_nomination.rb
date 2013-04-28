@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :work_nomination do
     name
-    
     after(:create) do |p|
       p.publish
     end

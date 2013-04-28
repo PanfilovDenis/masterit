@@ -1,11 +1,12 @@
 class Tour < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :name, :state_event
-  
-  has_many :completitions
+
+  belongs_to :competition
   has_many :works
-  validates :name, :presence => true
   
+  validates :name, :presence => true
+
   state_machine :state, initial: :hidden do
     state :hidden
     state :published
@@ -18,9 +19,9 @@ class Tour < ActiveRecord::Base
       transition all => :hidden
     end
   end
-  
+
   def to_s
     name
   end
-  
+
 end

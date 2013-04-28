@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class Web::Admin::CompletitionsControllerTest < ActionController::TestCase
+class Web::Admin::CompetitionsControllerTest < ActionController::TestCase
   def setup
-    @completition = create :completition
-    @params = { id: @completition.id }
-    @attrs = attributes_for(:completition)
+    @competition = create :competition
+    @params = { id: @competition.id }
+    @attrs = attributes_for(:competition)
   end
 
   test "should get index" do
@@ -23,13 +23,13 @@ class Web::Admin::CompletitionsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    @params[:completition] = @attrs
+    @params[:competition] = @attrs
     post :create, @params
     assert_response :redirect
   end
 
   test "should put update" do
-    @params[:completition] = @attrs
+    @params[:competition] = @attrs
     put :update, @params
     assert_response :redirect
   end

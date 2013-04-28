@@ -4,7 +4,7 @@ class Web::Admin::ApplicationController < Web::ApplicationController
   before_filter :title_head
 
 private
-  def title_head
+  def title_head(options = {})
     scope = []
     scope << params[:controller].split('/')
     action = params[:action]

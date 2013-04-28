@@ -1,8 +1,7 @@
-class CreateCompletition < ActiveRecord::Migration
+class CreateCompetition < ActiveRecord::Migration
   def change
-    create_table :completitions do |t|
+    create_table :competitions do |t|
       t.string :name
-      t.integer :tour_id
       t.integer :year
       t.string :state
 
