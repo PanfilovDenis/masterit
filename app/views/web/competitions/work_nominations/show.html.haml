@@ -21,6 +21,8 @@
               = "Регион: #{Region.find(work.region_id)}"
               %br
               = "Тур: #{work.tour}"
+              %br
+              = "Номинация: #{work.work_nomination}"
               - if work.plagiat_details.find_by_user_id(current_user.id) == nil
                 %br
                 = link_to new_competition_work_nomination_plagiat_details_path(@competition, @work_nomination,  work_id: work.id),
