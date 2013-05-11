@@ -7,7 +7,7 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
 
   def new
     @competition = Competition.new
-    @commpetition.assign_attributes params[:competition]
+    @competition.assign_attributes params[:competition]
     tours = @competition.tours.map(&:name)
     tours_names = ["Школьный", "Муниципальный", "Региональный"]
     if tours.size < tours_names.size
