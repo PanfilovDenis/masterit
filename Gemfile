@@ -25,7 +25,7 @@ gem "cocoon"
 gem "ransack"
 gem 'state_machine'
 gem 'ancestry'
-gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
+gem 'usefull_scopes'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'

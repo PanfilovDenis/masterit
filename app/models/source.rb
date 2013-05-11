@@ -1,5 +1,7 @@
 class Source < ActiveRecord::Base
-  attr_accessible :description, :url, :name, :work_id
+  mount_uploader :source, SourceUploader
+
+  attr_accessible :description, :url, :name, :work_id, :source
 
   belongs_to :work
 end

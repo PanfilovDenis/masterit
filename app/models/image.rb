@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
-  attr_accessible :description, :url, :name, :work_id
+  mount_uploader :photo, PhotoUploader
+
+  attr_accessible :description, :url, :name, :work_id, :photo
 
   belongs_to :work
 end
