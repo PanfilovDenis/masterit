@@ -1,0 +1,8 @@
+= simple_form_for @plagiat_detail, url: url, html: {class: 'default_class'} do |f|
+  = f.input :id, as: :hidden
+  = f.input :work_id, as: :hidden
+  = f.input :url
+  = f.input :message
+  .form-actions
+    = f.button :submit, value: 'Пожаловаться',  class: 'btn btn-primary'
+    = link_to 'Отмена', :back, class: 'btn'

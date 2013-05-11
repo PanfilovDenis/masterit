@@ -1,0 +1,14 @@
+%h3= @work
+.row
+  - if @work.image?
+    .span3= image_tag @work.image
+  .span7
+    = "Название работы: #{@work}"
+    %br
+    = "ФИО: #{@work.user}"
+    %br
+    = "Регион: #{@work.region}"
+    %br
+    = "Тур: #{@work.tour}"
+    %br
+    != @work.description

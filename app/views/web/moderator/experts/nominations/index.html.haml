@@ -1,0 +1,30 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :name
+      %th= sort_link @q, :state
+      %th
+  %tbody
+    - @work_nominations.each do |item|
+      %tr{class: "#{(not_belongs_to_expert?(@expert, item)) ? "success": "error"}"}
+        %td= item.id
+        %td= item.name
+        %td= item.human_state_name
+        %td
+          -if item.works.any?
+            .pull-right.btn-group
+              - if not_belongs_to_expert?(@expert, item)
+                = link_to set_nomination_to_expert_moderator_expert_nomination_path(@expert.id, item.id),
+                  title: 'Добавить  номинацию для эксперта',
+                  method: :put,
+                  data: { confirm: 'Добавить эксперту  номинацию' }, class: 'btn btn-mini' do
+                  %i.icon-ok
+              -else
+                = link_to remove_nomination_from_expert_moderator_expert_nomination_path(@expert.id, item.id),
+                  title: 'Закрыть номинацию для эксперта',
+                  method: :put,
+                  data: { confirm: 'Закрыть номинацию для эксперта' }, class: 'btn btn-mini btn-danger' do
+                  %i.icon-lock
+
+= paginate @work_nominations

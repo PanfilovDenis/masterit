@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require bootstrap.css
+ *= require bootstrap.min.css
  *= require jquery.ui.datepicker
  *= require_self
  */

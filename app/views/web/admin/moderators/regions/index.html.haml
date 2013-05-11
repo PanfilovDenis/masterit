@@ -1,0 +1,29 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :name
+      %th= sort_link @q, :state
+      %th
+  %tbody
+    - @regions.each do |item|
+      %tr{class: "#{moderator_has_region?(@moderator, item) ? "success": "warning"}"}
+        %td= item.id
+        %td= item.name
+        %td= item.human_state_name
+        %td
+          .pull-right.btn-group
+            - if moderator_has_region?(@moderator, item)
+              = link_to remove_region_from_moderator_admin_moderator_region_path(@moderator.id, item.id),
+                method: :put,
+                title: 'Исключить модератора из региона',
+                data: { confirm: 'Закрыть район для модератора' }, class: 'btn btn-mini btn-danger' do
+                %i.icon-lock
+            -else
+              = link_to set_region_to_moderator_admin_moderator_region_path(@moderator.id, item.id),
+                method: :put,
+                title: 'Привязать реион к модератору',
+                data: { confirm: 'Добавить модератору район' }, class: 'btn btn-mini' do
+                %i.icon-ok
+
+= paginate @regions

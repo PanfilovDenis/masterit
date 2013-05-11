@@ -24,9 +24,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user = User.new
       @user = get_user_by_populator(@user, auth_hash)
       @user.email = email
-      @user.role = :user
+      @user.type = :User
       @user.authorizations << build_authorization(auth_hash)
-
+      @user.type = "Participant"
       if @user.save
         sign_in @user
         flash_success

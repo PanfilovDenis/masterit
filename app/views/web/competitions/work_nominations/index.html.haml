@@ -1,0 +1,10 @@
+.row
+  .span3
+    .well.well-small
+      %ul.nav.nav-pills.nav-stacked
+        %li.nav-header= resource_competition
+        - @work_nominations.each do |w|
+          = item :li, w, competition_work_nomination_path(@competition, w)
+  .span9
+    %h3= @work_nomination
+-#= paginate @work_nominations

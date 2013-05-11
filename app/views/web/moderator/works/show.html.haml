@@ -1,0 +1,29 @@
+.page-header
+  %h3= @work.name
+  %p= @work.description
+  %p= @work.tour
+  %p= @work.work_nomination
+  - if @work.plagiat_details.any?
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th= t '.users'
+          %th= t '.plagiat_url'
+          %th= t '.plagiat_message'
+      %tbody
+        - @work.plagiat_details.each do |plagiat|
+          %tr{class: "#{(true) ? "warning": "error"}"}
+            %td
+              .row
+                .span2
+                  %p=Participant.human_attribute_name :first_name
+                  %p=Participant.human_attribute_name :last_name
+                  %p=Participant.human_attribute_name :email
+                .span3
+                  %p= plagiat.user.first_name
+                  %p= plagiat.user.last_name
+                  %p= plagiat.user.email
+            %td
+              %p=plagiat.url
+            %td
+              %p=plagiat.message

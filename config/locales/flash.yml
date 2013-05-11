@@ -7,6 +7,24 @@ ru:
             notice: "Пользователь с таким email уже существует. Если этот email Ваш, напишите Администратору"
             success: "Регистрация через социальную сеть успешно произведена"
       web:
+        competitions:
+          plagiat_details:
+            create:
+              success: "Жалоба будет рассмотрена"
+              error: "При отправке жалобы возникли ошибки"
+            update:
+              success: "Данные обновлены"
+              error: "При обновлении жалобы возникли ошибки"
+        expert:
+          estimations:
+            update:
+              success: "Работа успешно оценена"
+              error: "Оценить не получилось"
+        admin:
+          competitions:
+            create:
+              success: "Конкурс успешно создан"
+              error: "Ошибка при создании конкурса"
         works:
         create:
           success: "Работа успешно зарегистрирована"

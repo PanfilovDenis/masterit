@@ -1,0 +1,33 @@
+= link_to t('.new'), new_admin_work_path, :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :name
+      %th= sort_link @q, :image
+      %th= sort_link @q, :tour_id
+      %th= sort_link @q, :region_id
+      -#%th= sort_link @q, :nominate
+      -#%th= sort_link @q, :state
+      %th= sort_link @q, :user_id
+      %th
+  %tbody
+    - @works.each do |item|
+      %tr
+        %td= item.id
+        %td= item.name
+        %td= item.image
+        %td= Tour.find(item.tour_id)
+        %td= Region.find(item.region_id)
+        -#%td= item.nominate
+        -#%td= item.human_state_name
+        %td= User.find(item.user_id)
+        %td
+          .pull-right.btn-group
+            = link_to edit_admin_work_path(item), :class => 'btn btn-mini' do
+              %i.icon-pencil
+            = link_to admin_work_path(item), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger' do
+              %i.icon-trash
+
+= paginate @works

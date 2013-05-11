@@ -1,0 +1,38 @@
+%h3= "Работ оценено: #{Work.where("estimate_state= ?", "estimated").count} /  #{@works.count} "
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Work.human_attribute_name :name
+      %th= Work.human_attribute_name :work_nomination
+      %th= Work.human_attribute_name :estimate_state
+      %th= Work.human_attribute_name :plagiat_state
+      %td
+  %tbody
+    - @works.each do |work|
+      %tr{class: "#{(work.estimate_state_estimated?) ? "success": "warning"}"}
+        %td= work.name
+        %td= work.work_nomination
+        %td= work.human_estimate_state_name
+        %td= work.human_plagiat_state_name
+        %td
+          = link_to expert_work_path(work),
+            title:  'Просмотреть работу',
+            class: 'btn btn-mini' do
+            %i.icon-eye-open
+          = link_to edit_expert_estimation_path(current_estimation(work).id),
+            title:  'Оценить работу',
+            class: 'btn btn-mini' do
+            %i.icon-refresh
+          = link_to remove_from_basket_expert_work_path(work),
+            method: :put,
+            title:  'Оценить работу',
+            class: 'btn btn-mini btn-danger' do
+            %i.icon-trash
+          = link_to trigger_estimate_expert_work_path(work),
+            method: :put,
+            title:  "#{work.estimate_state_estimated? ? "Отметить для оценки" : "Отметить как оцененную"}",
+            class: 'btn btn-mini' do
+            -if work.estimate_state_estimated? 
+              %i.icon-star-empty
+            -else
+              %i.icon-star

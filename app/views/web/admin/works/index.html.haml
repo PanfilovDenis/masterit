@@ -18,8 +18,8 @@
         %td= item.id
         %td= item.name
         %td= item.image
-        %td= Tour.find(item.tour_id)
-        %td= Region.find(item.region_id)
+        %td= item.tour
+        %td= item.region
         -#%td= item.nominate
         -#%td= item.human_state_name
         %td= User.find(item.user_id)

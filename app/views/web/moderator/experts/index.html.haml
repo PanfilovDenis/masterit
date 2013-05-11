@@ -1,0 +1,26 @@
+= simple_form_for @export, method: :put, url: send_invite_to_expert_admin_expert_path do |f|
+  = f.input :email
+  = button_tag t('.expert_invite'), :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Expert.human_attribute_name :first_name
+      %th= Expert.human_attribute_name :last_name
+      %th= Expert.human_attribute_name :email
+      %th
+  %tbody
+    - @experts.each do |expert|
+      %tr
+        %td= expert.first_name
+        %td= expert.last_name
+        %td= expert.email
+        %td
+          = link_to moderator_expert_works_path(expert.id),
+            title:  t('.works_list'),
+            class: 'btn btn-mini' do
+            %i.icon-shopping-cart
+          = link_to moderator_expert_nominations_path(expert.id),
+            title:  t('.work_nominations_list'),
+            class: 'btn btn-mini' do
+            %i.icon-folder-close
