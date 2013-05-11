@@ -29,6 +29,7 @@ gem 'usefull_scopes'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'
+gem 'social-share-button'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

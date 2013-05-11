@@ -15,4 +15,5 @@
 //= require twitter/bootstrap
 //= require cocoon
 //= require ckeditor/init
+//= require social-share-button
 //= require_tree .

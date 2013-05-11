@@ -12,5 +12,6 @@
  *= require bootstrap.css
  *= require bootstrap.min.css
  *= require jquery.ui.datepicker
+ *= require social-share-button
  *= require_self
  */
