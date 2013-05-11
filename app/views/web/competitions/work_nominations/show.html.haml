@@ -11,7 +11,8 @@
       - @work_nomination.works.each do |work|
         %li.span3
           .thumbnail
-            -#= image_tag work.avatar.thumb.url
+            - if work.image?
+              = image_tag work.image
             .caption
               = "Название работы:" 
               = link_to work, work_path(work)
