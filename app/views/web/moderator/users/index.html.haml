@@ -1,0 +1,32 @@
+= simple_form_for :q, url: admin_users_path, method: :get, html: {class: 'form-inline filters'} do |s|
+  = s.input :type_eq, as: :chosen_select, collection: [["Админы", "Admin"], ["Эксперты", "Expert"], ["Участники", "Participant"], ["Модераторы", "Moderator"]], label: false,  include_blank: t('.choose')
+  = s.button :submit, value: t('.find_users'),class: 'btn-primary'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :first_name
+      %th= sort_link @q, :last_name
+      %th= sort_link @q, :email
+      %th= sort_link @q, :role
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= t ".roles.#{user.role}"
+        %td
+          = link_to edit_admin_user_path(user), class: 'btn btn-mini' do
+            %i.icon-pencil
+          -if user.role? :participant
+            = simple_form_for user, method: :put, url: invite_to_expert_admin_user_path do |f|
+              = f.input :id, as: :hidden
+              = button_tag(type: 'submit', title: t('.expert_invite'), class: "btn btn-mini") do
+                %i.icon-hand-right
+            = simple_form_for user, method: :put, url: invite_to_moderator_admin_user_path do |f|
+              = f.input :id, as: :hidden
+              = button_tag(type: 'submit', title: t('.moderator_invite'), class: "btn btn-mini") do
+                %i.icon-user

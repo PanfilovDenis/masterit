@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: 1
+  decoration: 1
+  technology_usage: 1
+
+two:
+  content: 1
+  decoration: 1
+  technology_usage: 1

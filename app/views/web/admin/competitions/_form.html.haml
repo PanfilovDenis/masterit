@@ -1,0 +1,20 @@
+= simple_form_for @competition, url: url, html: { class: 'default_class' } do |f|
+  %ul.nav.nav-tabs
+    %li{class: "active"}= link_to t('.main'), "#main", {data: {toggle: 'tab'}}
+    %li= link_to t('.tours'), "#tours", {data: {toggle: 'tab'}}
+  .tab-content
+    .tab-pane#main.active
+      = f.input :state_event, as: :state_event
+      = f.input :name
+      = f.input :year, collection: Time.current.year..Time.current.year + 20, prompt: "Выберите год"
+      = f.association :work_nominations
+    .tab-pane#tours
+      = f.simple_fields_for :tours do |t|
+        = render 'tour_fields', :f => t
+      .links
+        = link_to_add_association f, :tours, class: 'btn btn-info' do
+          %i.icon-plus
+            = t(".add_tour")
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_competitions_path, class: 'btn'

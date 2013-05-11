@@ -1,8 +1,0 @@
-= simple_form_for @completition, :url => url, :html => { :class => 'default_class' } do |f|
-  = f.input :state_event, as: :state_event
-  = f.input :name
-  = f.input :year
-  = f.association :tour
-  .form-actions
-    = f.button :submit, :class => 'btn btn-primary'
-    = link_to t('.cancel'), admin_completitions_path, :class => 'btn'

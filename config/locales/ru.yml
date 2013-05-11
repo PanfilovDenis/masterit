@@ -3,17 +3,91 @@ ru:
   cancel: &cancel Отмена
   confirm: &confirm Вы уверены?
   layouts:
+    application:
+      catalog_works: Каталог работ
     web:
       admin:
-        application:
-          work_nominations: Номинации
-          works: Работы
-          regions: Регионы
-          tours: Туры
-          users: Пользователи
-          completitions: Конкурсы
-          menu: Динамическое меню
+        shared:
+          models_management:
+            cabinet: Кабинет
+            work_nominations: Номинации
+            works: Работы
+            regions: Регионы
+            tours: Туры
+            users: Пользователи
+            experts: Управление экспертами
+            moderators: Управление модераторами
+            competitions: Конкурсы
+            menu: Меню
+      expert:
+        shared:
+          works_management:
+            works: "Корзина эксперта"
+            work_nominations: "Обзор номинаций"
+      moderator:
+        shared:
+          works_management:
+            works: "Обзор работ"
+            users: "Работа с пользователями"
+            experts: "Управление экспертами"
+
   web:
+    moderator:
+      works:
+        index: 
+          title: "Модерация работ"
+        show:
+          title: "Обзор жалоб на плагиат"
+          plagiat_url: "Ссылки на оригинальную работу"
+          plagiat_message: "Сообщения о плагиате"
+          users: "Сообщившие о плагиате"
+      users:
+        index:
+          choose: "Выберите..."
+          find_users: "Отфильтровать"
+          confirm: *confirm
+          title: &users Пользователи
+          new: *new
+          expert_invite: Назначить экспертом
+          moderator_invite: "Назначить модератором"
+          roles: 
+            admin: "Админ"
+            expert: "Эксперт"
+            moderator: "Модератор"
+            participant: "Участник"
+      experts:
+        works:
+          index: 
+            title: "Назначение работ эксперту"
+        nominations:
+          index: 
+            title: "Назначение номинаций эксперту"
+        index:
+          title: "Управление экспертами"
+          expert_invite: "Пригласить эксперта"
+          works_list: "Список работ"
+          work_nominations_list: "Список номинаций"
+      welcome:
+        index:
+          title: "Добро пожаловать, модератор"
+    expert:
+      welcome:
+        index:
+          title: "Добро пожаловать, эксперт!!!"
+      estimations:
+        edit:
+          finish: "Оценить"
+          title: "Оценка работы"
+      work_nominations:
+        index:
+          title: "Обзор номинаций"
+      works:
+        index:
+          title: "Корзина эксперта"
+        show:
+          experts: "Эксперты"
+          estimations: "Оценки"
+          title: "Состояние работы"
     admin:
       welcome:
         index:
@@ -86,28 +160,70 @@ ru:
           title: Редактировать регион
         form:
           cancel: *cancel
+      moderators:
+        index:
+          title: "Работы с модераторами"
+          moderator_invite: Отправить приглашение Модератору
+        regions:
+          index:
+            title: "Назначение района модератору"
+      experts:
+        works:
+          index:
+            title: "Назначение работ эксперту"
+            add_to_expert_basket: "Добавить в корзину эксперта"
+            view_work: "Просмотреть работу"
+          show:
+            title: "Просмотр работы"
+            experts: "Эксперты"
+            estimations: "Оценки"
+        nominations:
+          index:
+            title: "Привязка номинаций эксперту"
+        index:
+          confirm: *confirm
+          title: &experts Эксперты
+          new: *new
+          expert_invite: Отправить приглaшение Эксперту
+          work_nominations_list: "Номинации эксперта"
+          works_list: "Корзина эксперта"
       users:
         index:
+          choose: "Выберите..."
+          find_users: "Отфильтровать"
           confirm: *confirm
           title: &users Пользователи
           new: *new
+          expert_invite: Назначить экспертом
+          moderator_invite: "Назначить модератором"
+          roles: 
+            admin: "Админ"
+            expert: "Эксперт"
+            moderator: "Модератор"
+            participant: "Участник"
         new:
           title: Добавить пользователя
         edit:
           title: Редактировать пользователя
         form:
           cancel: *cancel    
-      completitions:
+      competitions:
         index:
           confirm: *confirm
-          title: &completitions Конкурсы
+          title: &competitions Конкурсы
           new: *new
         new:
           title: Добавить конкурс
         edit:
           title: Редактировать конкурс
         form:
+          tours: "Туры"
+          main: "Основное"
+          add_tour: "Добавить тур"
           cancel: *cancel
+        show:
+          title: "Конкурс"
+          tour: "тур"
     users:
       show:
         info: Мои данные
@@ -115,7 +231,20 @@ ru:
         my_accounts: Мои аккаунты
         
   activerecord:
+    models: 
+      expert: "Эксперт"
+      moderator: "Модератор"
+      admin: "Админ"
+      user: "Пользователь"
     attributes:
+      expert:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "email"
+      estimation:
+        content: "Содержание"
+        decoration: "Оформление"
+        technology_usage: "Технологичность"
       user:
         email: "Email"
         password: "Пароль"
@@ -124,6 +253,7 @@ ru:
         first_name: "Имя"
         patronymic: "Отчество"
         remember_me: "Запомнить меня"
+        role: "Роль"
       work:
         name: Название работы
         image: Обложка
@@ -134,6 +264,8 @@ ru:
         tour: Тур
         region: Регион
         user_id: Пользователь
+        estimate_state: "Статус оценки"
+        plagiat_state: "Статус допуска"
       work_nomination:
         name: Название номинации
         state: Статус
@@ -146,7 +278,7 @@ ru:
         name: Название тура
         state: Статус
         state_event: Статус
-      completition:
+      competition:
         name: Название конкурса
         year: Год
         tour: Тур

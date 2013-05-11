@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  include TimepadHelper
   def create
     build_resource
 
@@ -9,7 +10,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         
         UserMailer.welcome(resource).deliver
         add_to_timepad_maillist(resource)
-
+        resource.type = "Participant"
+        resource.save
         respond_with resource, :location => after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?

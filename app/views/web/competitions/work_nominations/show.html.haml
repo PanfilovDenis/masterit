@@ -1,0 +1,46 @@
+.row
+  .span3
+    .well.well-small
+      %ul.nav.nav-pills.nav-stacked
+        %li.nav-header= resource_competition
+        - @work_nominations.each do |wn|
+          = item :li, wn, competition_work_nomination_path(@competition, wn)
+  .span9
+    %h3= @work_nomination
+    %ul.thumbnails
+      - @work_nomination.works.each do |work|
+        %li.span3
+          .thumbnail
+            -#= image_tag work.avatar.thumb.url
+            .caption
+              = "Название работы:" 
+              = link_to work, work_path(work)
+              %br
+              = "ФИО: #{work.user.last_name} #{work.user.first_name} #{work.user.patronymic} "
+              %br
+              = "Регион: #{Region.find(work.region_id)}"
+              %br
+              = "Тур: #{work.tour}"
+              - if work.plagiat_details.find_by_user_id(current_user.id) == nil
+                %br
+                = link_to new_competition_work_nomination_plagiat_details_path(@competition, @work_nomination,  work_id: work.id),
+                  method: :get,
+                  title:  'Пожаловаться на плагиат',
+                  class: 'btn btn-mini' do
+                  %i.icon-bell
+              - else
+                %br
+                = link_to competition_work_nomination_plagiat_details_path(@competition.id, @work_nomination.id, plagiat_id: plagiat(work, current_user)),
+                  method: :delete,
+                  title:  'Удалить жалобу',
+                  class: 'btn btn-mini btn-danger' do
+                  %i.icon-remove-circle
+                = link_to edit_competition_work_nomination_plagiat_details_path(@competition.id, @work_nomination.id, plagiat_id: plagiat(work, current_user)),
+                  method: :get,
+                  title:  'Редактировать жалобу',
+                  class: 'btn btn-mini ' do
+                  %i.icon-pencil
+
+-#= paginate @works
+    
+-#= paginate @work_nominations

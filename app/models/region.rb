@@ -3,7 +3,7 @@ class Region < ActiveRecord::Base
   attr_accessible :name, :state_event
   
   has_many :works
-  
+  has_one :moderator
   validates :name, :presence => true
   
   state_machine :state, initial: :hidden do

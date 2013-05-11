@@ -1,0 +1,39 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :name
+      %th= sort_link @q, :image
+      %th= sort_link @q, :tour_id
+      %th= sort_link @q, :region_id
+      %th= sort_link @q, :user_id
+      %th= Work.human_attribute_name :estimate_state
+      %th= Work.human_attribute_name :plagiat_state
+      %th= "Количество жалоб"
+      %th
+  %tbody
+    - @works.each do |item|
+      %tr
+        %td= item.id
+        %td= item.name
+        %td= item.image
+        %td= item.tour
+        %td= Region.find(item.region_id)
+        %td= User.find(item.user_id)
+        %td= item.human_estimate_state_name
+        %td= item.human_plagiat_state_name
+        %td= item.plagiat_details.any? ? item.plagiat_details.count : '-'
+        %td
+          .pull-right.btn-group
+            = link_to moderator_work_path(item), :class => 'btn btn-mini' do
+              %i.icon-eye-open
+            = link_to trigger_plagiat_moderator_work_path(item),
+              method: :put,
+              title:  "#{item.plagiat_state_banned? ? "Разблокировать" : "Заблокировать"}",
+              class: 'btn btn-mini' do
+              -if item.plagiat_state_banned? 
+                %i.icon-ok-circle
+              -else
+                %i.icon-lock
+
+= paginate @works

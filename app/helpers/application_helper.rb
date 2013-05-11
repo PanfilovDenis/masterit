@@ -1,4 +1,29 @@
 module ApplicationHelper
+  def current_estimation(work)
+    work.estimations.where("expert_id = ?", current_user.id).first
+  end
+  def plagiat(work, user)
+    user.plagiat_details.where("work_id = ?", work.id).first.id
+  end
+  def moderator_has_region?(moderator, region)
+    moderator.id == region.moderator_id
+  end
+  def progress_value(estimation_value)
+    value = estimation_value / 10.0 * 100
+    value.to_i
+  end
+  def not_in_basket?(expert, work)
+    return true if expert.basket.nil?
+    works = expert.basket.works
+    works.map(&:id).exclude?(work.id)
+  end
+  def not_belongs_to_expert?(expert, nomination)
+    return true if expert.basket.nil?
+    works = expert.basket.works.map(&:id)
+    nomination_works = nomination.works.map(&:id)
+    nomination_works.each {|work| return true if works.exclude? work}
+    return false
+  end
   def item(tag, name, path, link_options = {})
     options = {}
     options[:class] = :active if current_page?(path)
@@ -32,5 +57,8 @@ module ApplicationHelper
   def nav_menu_items_arrange
     MenuItem.published_arrange(2)
   end
-  
+
+  def current_competition
+    Competition.find_by_year Time.current.year
+  end
 end

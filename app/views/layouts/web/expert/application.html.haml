@@ -1,0 +1,32 @@
+!!! 5
+%html(lang="ru")
+  = render 'layouts/web/expert/shared/head'
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand(href="#") Masterit
+          .container.nav-collapse
+            %ul.nav.pull-right
+              - if user_signed_in?
+                - if current_user.role? :expert
+                  = render 'layouts/web/expert/shared/works_management'
+                %li= link_to "#{current_user.email}", user_path(current_user)
+                %li= link_to "Выход", destroy_user_session_path, method: :delete
+              - else
+                %li= link_to "Вход", new_user_session_path
+
+    - if user_signed_in?
+      - if current_user.role? :expert
+        .container
+          .content
+            = render 'layouts/web/expert/shared/title'
+            = bootstrap_flash
+            = yield
+
+
+        -#= render 'layouts/web/admin/shared/footer'

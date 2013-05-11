@@ -1,6 +1,10 @@
-.row
-  .span3
-    = render partial: 'nav'
-  .span9
-    %h3= @page
-    != @page.body
+- unless @page.menu_item.pages.count == 1 
+  .row
+    .span3
+      = render partial: 'nav'
+    .span9
+      %h3= @page
+      != @page.body
+- else 
+  %h3= @page
+  != @page.body

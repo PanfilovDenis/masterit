@@ -1,0 +1,6 @@
+.nested-fields
+  .span3
+    = f.input :state_event, as: :state_event
+    = f.input :name
+    = link_to_remove_association f, class: 'close' do 
+      %i.icon-remove

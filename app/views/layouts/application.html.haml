@@ -25,9 +25,20 @@
                   = item :li, menu_item.title, page_path(menu_item.pages.first)
               - if user_signed_in?
                 - if current_user.role? :admin
-                  %li= link_to "rAdmin", rails_admin_path
+                  %li= link_to "Управление данными", rails_admin_path
                   %li= link_to "Админка", admin_root_path
-                
+                - if current_user.role? :expert
+                  %li= link_to "Оценка работ", expert_root_path
+                - if current_user.role? :moderator
+                  %li= link_to "Управление районом", moderator_root_path
+                -if Competition.current.first.present? && Competition.current.first.started?
+                  %li.dropdown
+                    %a.dropdown-toggle{ data: {toggle: 'dropdown'}, href: '#' }
+                      = t('.catalog_works')
+                      %b.caret
+                    %ul.dropdown-menu
+                      - Competition.all.each do |c|
+                        = item :li, c, competition_work_nominations_path(c)
                 %li= link_to "#{current_user.email}", user_path(current_user)
                 %li= link_to "Выход", destroy_user_session_path, :method => :delete
               - else

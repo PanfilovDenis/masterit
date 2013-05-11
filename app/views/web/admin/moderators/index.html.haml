@@ -1,0 +1,22 @@
+= simple_form_for @moderator, method: :put, url: send_invite_to_moderator_admin_moderator_path do |f|
+  = f.input :email
+  = button_tag t('.moderator_invite'), :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Moderator.human_attribute_name :first_name
+      %th= Moderator.human_attribute_name :last_name
+      %th= Moderator.human_attribute_name :email
+      %th
+  %tbody
+    - @moderators.each do |moderator|
+      %tr
+        %td= moderator.first_name
+        %td= moderator.last_name
+        %td= moderator.email
+        %td
+          = link_to admin_moderator_regions_path(moderator.id),
+            title:  'Список регионов',
+            class: 'btn btn-mini' do
+            %i.icon-folder-close

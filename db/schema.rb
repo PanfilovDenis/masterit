@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419050159) do
+ActiveRecord::Schema.define(:version => 20130505064220) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.string   "secret"
     t.string   "name"
     t.string   "link"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "baskets", :force => true do |t|
+    t.integer  "expert_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -41,13 +47,36 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "completitions", :force => true do |t|
+  create_table "competitions", :force => true do |t|
     t.string   "name"
-    t.integer  "tour_id"
     t.integer  "year"
     t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "competitions_work_nominations", :id => false, :force => true do |t|
+    t.integer "competition_id"
+    t.integer "work_nomination_id"
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.integer  "competition_id"
+    t.string   "title"
+    t.text     "describtion"
+    t.string   "state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "estimations", :force => true do |t|
+    t.integer  "content"
+    t.integer  "decoration"
+    t.integer  "technology_usage"
+    t.integer  "expert_id"
+    t.integer  "work_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "images", :force => true do |t|
@@ -75,6 +104,15 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.integer  "menu_item_id"
   end
 
+  create_table "plagiat_details", :force => true do |t|
+    t.string   "url"
+    t.text     "message"
+    t.integer  "work_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -91,8 +129,18 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
   create_table "regions", :force => true do |t|
     t.string   "name"
     t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "moderator_id"
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer  "competition_id"
+    t.string   "title"
+    t.text     "describtion"
+    t.string   "state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "sources", :force => true do |t|
@@ -105,10 +153,11 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
   end
 
   create_table "tours", :force => true do |t|
+    t.integer  "competition_id"
     t.string   "name"
     t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -125,7 +174,7 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "role"
+    t.string   "type"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "patronymic"
@@ -161,6 +210,10 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.integer  "region_id"
     t.integer  "tour_id"
     t.integer  "work_nomination_id"
+    t.integer  "basket_id"
+    t.string   "plagiat_state"
+    t.string   "estimate_state"
+    t.integer  "participant_id"
   end
 
 end

@@ -1,0 +1,32 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Work.human_attribute_name :name
+      %th= Work.human_attribute_name :work_nomination
+      %th= Work.human_attribute_name :estimate_state
+      %th= Work.human_attribute_name :plagiat_state
+      %th
+  %tbody
+    - @works.each do |work|
+      %tr{class: "#{(not_in_basket?(@expert, work)) ? "success": "error"}"}
+        %td= work.name
+        %td= work.work_nomination
+        %td= work.human_estimate_state_name
+        %td= work.human_plagiat_state_name
+        %td
+          = link_to admin_expert_work_path(@expert.id, work.id),
+            title:  t('.view_work'),
+            class: 'btn btn-mini' do
+            %i.icon-eye-open
+          - if not_in_basket?(@expert, work)
+            = link_to set_works_to_expert_admin_expert_work_path(@expert.id, work.id),
+              method: :put,
+              title:  t('.add_to_expert_basket'),
+              class: 'btn btn-mini' do
+              %i.icon-shopping-cart
+          -else
+            = link_to remove_works_from_expert_admin_expert_work_path(@expert.id, work.id),
+              method: :put,
+              title: 'Удалить работу у эксперта',
+              class: 'btn btn-mini btn-danger' do
+              %i.icon-shopping-cart

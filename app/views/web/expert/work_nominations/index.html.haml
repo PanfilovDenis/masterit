@@ -1,0 +1,15 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :name
+      %th= sort_link @q, :state
+      %th
+  %tbody
+    - @work_nominations.each do |item|
+      %tr
+        %td= item.id
+        %td= item.name
+        %td= item.human_state_name
+        %td
+= paginate @work_nominations

@@ -6,7 +6,7 @@ class StateEventInput < SimpleForm::Inputs::CollectionSelectInput
   def input
     label_method = :human_event
     value_method = :event
-    current_state = template.content_tag(:div, template.content_tag(:span, "Current state: #{object.human_state_name}", :class => "label label-info")  )
+    current_state = template.content_tag(:div, template.content_tag(:span, "Status: #{object.human_state_name}", :class => "label label-info")  )
     
     out = @builder.collection_select(
       attribute_name, collection, value_method, label_method,

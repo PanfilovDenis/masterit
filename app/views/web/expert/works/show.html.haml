@@ -1,0 +1,40 @@
+.page-header
+  %h3= @work.name
+  %p= @work.description
+  %p= @work.tour
+  %p= @work.work_nomination
+  - if @work.estimations.any?
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th= t '.experts'
+          %th= t '.estimations'
+      %tbody
+        - @work.estimations.each do |estimation|
+          %tr{class: "#{(true) ? "": "error"}"}
+            %td
+              .row
+                .span2
+                  %p=Expert.human_attribute_name :first_name
+                  %p=Expert.human_attribute_name :last_name
+                  %p=Expert.human_attribute_name :email
+                .span3
+                  %p= estimation.expert.first_name
+                  %p= estimation.expert.last_name
+                  %p= estimation.expert.email
+            %td
+              .row
+                .span3
+                  %div{class: "progress progress-info"}
+                    %p=Estimation.human_attribute_name :content
+                  %div{class: "progress progress-info"}
+                    %p=Estimation.human_attribute_name :decoration
+                  %div{class: "progress progress-info"}
+                    %p=Estimation.human_attribute_name :technology_usage
+                .span3
+                  %div{class: "progress progress-warning"}
+                    %div{class: "bar", data: {percentage: "#{progress_value(estimation.content)}"}}
+                  %div{class: "progress progress-warning"}
+                    %div{class: "bar", data: {percentage: "#{progress_value(estimation.decoration)}"}}
+                  %div{class: "progress progress-warning"}
+                    %div{class: "bar", data: {percentage: "#{progress_value(estimation.technology_usage)}"}}
