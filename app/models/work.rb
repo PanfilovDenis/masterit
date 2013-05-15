@@ -1,7 +1,7 @@
 class Work < ActiveRecord::Base
   mount_uploader :image, PhotoUploader
 
-  attr_accessible :description, :image, :estimations, :name, :state_event, :work_nomination, :user_id, :tour_id, :region_id, :work_nomination_id
+  attr_accessible :description, :image, :estimations, :name, :state_event, :work_nomination, :user_id, :tour_id, :region_id, :work_nomination_id, :user
 
   belongs_to :user
   has_many :sources, :dependent => :destroy

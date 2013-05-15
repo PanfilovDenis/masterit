@@ -89,31 +89,6 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.string   "photo"
   end
 
-  create_table "menu_items", :force => true do |t|
-    t.string   "title"
-    t.string   "ancestry"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.string   "state"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "menu_item_id"
-  end
-
-  create_table "plagiat_details", :force => true do |t|
-    t.string   "url"
-    t.text     "message"
-    t.integer  "work_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "inkwell_blog_items", :force => true do |t|
     t.integer  "item_id"
     t.boolean  "is_reblog"
@@ -179,6 +154,15 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "menu_item_id"
+  end
+
+  create_table "plagiat_details", :force => true do |t|
+    t.string   "url"
+    t.text     "message"
+    t.integer  "work_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -277,9 +261,11 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.string   "image"
     t.text     "description"
     t.integer  "user_id"
-<<<<<<< HEAD
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.text     "users_ids_who_favorite_it", :default => "[]"
+    t.text     "users_ids_who_comment_it",  :default => "[]"
+    t.text     "users_ids_who_reblog_it",   :default => "[]"
     t.integer  "region_id"
     t.integer  "tour_id"
     t.integer  "work_nomination_id"
@@ -287,16 +273,6 @@ ActiveRecord::Schema.define(:version => 20130511114139) do
     t.string   "plagiat_state"
     t.string   "estimate_state"
     t.integer  "participant_id"
-=======
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
->>>>>>> comments merge fix
-    t.text     "users_ids_who_favorite_it", :default => "[]"
-    t.text     "users_ids_who_comment_it",  :default => "[]"
-    t.text     "users_ids_who_reblog_it",   :default => "[]"
-    t.integer  "region_id"
-    t.integer  "tour_id"
-    t.integer  "work_nomination_id"
   end
 
 end
