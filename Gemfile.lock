@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/salkar/inkwell.git
+  revision: e8b45db64bd0f78cead46b87ccfea8a92858eb20
+  specs:
+    inkwell (1.5.1)
+      activerecord (>= 3.1.0)
+      railties (>= 3.1.0)
+
+GIT
+  remote: https://github.com/kaize/usefull_scopes.git
+  revision: b5dc29715f9a2afdba8e818cc56f20f75471f57f
+  specs:
+    usefull_scopes (0.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -99,9 +113,6 @@ GEM
     hpricot (0.8.6)
     httpauth (0.2.0)
     i18n (0.6.1)
-    inkwell (1.5.1)
-      activerecord (>= 3.1.0)
-      railties (>= 3.1.0)
     journey (1.0.4)
     jquery-rails (2.2.0)
       railties (>= 3.0, < 5.0)
@@ -297,7 +308,7 @@ DEPENDENCIES
   haml-rails
   heroku
   hpricot
-  inkwell
+  inkwell!
   jquery-rails
   less-rails
   localtunnel

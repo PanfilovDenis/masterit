@@ -4,7 +4,7 @@ class Web::WorksControllerTest < ActionController::TestCase
 
   setup do
     @user = create :user
-    @work = create :work
+    @work = create :work, user_id: @user.id
     @attrs = attributes_for :work
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in @user
@@ -17,8 +17,7 @@ class Web::WorksControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-
-    get :create, work: @attrs.merge(user_id: @user)
+    get :create, work: @attrs.merge(user_id: @user.id)
     work = Work.find @work
     assert work
     assert_response :redirect
