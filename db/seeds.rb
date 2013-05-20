@@ -20,9 +20,9 @@ work_nominations = ["Тематический сайт","2-мерная стат
 "Реклама к юбилею Конкурса (видеоролики, графика и т.д.)"]
 work_nominations.each { |work_nomination| WorkNomination.create(name: work_nomination) }
 works = []
-works <<  Work.create(name: "work", description: "describtion")
-works << Work.create(name: "new_work", description: "new_describtion")
-works << Work.create(name: "new_new_work", description: "new_new_describtion")
+works <<  Work.create(name: "work", description: "describtion", user_id: 1)
+works << Work.create(name: "new_work", description: "new_describtion", user_id: 1)
+works << Work.create(name: "new_new_work", description: "new_new_describtion", user_id: 1)
 competition = Competition.new
 competition.year = Time.current.year
 competition.name = "MasterIT 2013"
