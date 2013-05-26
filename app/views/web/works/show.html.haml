@@ -1,4 +1,5 @@
-%h3= @work
+%h3
+  = @work
 .row
   - if @work.image?
     .span3= image_tag @work.image
@@ -16,4 +17,9 @@
 %a{:href => "http://vkontakte.ru/share.php?url=http://mysite.com", :target => "_blank"}
   %img{:src => "http://vk.com/images/vk16.png"}
 = social_share_button_tag(@work)
+= @like_count.size
+- if current_user.favorite? @work
+  = link_to '', "#{unfavorite_works_path}?work_id=#{@work.id}", method: :post, class: "icon-star"
+- else
+  = link_to '', "#{favorite_works_path}?work_id=#{@work.id}", method: :post, class: "icon-star-empty"
 =render template:'comments/index' , comments: @work.comments

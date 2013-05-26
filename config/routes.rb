@@ -135,7 +135,12 @@ Masterit::Application.routes.draw do
     end
     resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
-    resources :works
+    resources :works do
+      collection do
+        post :favorite
+        post :unfavorite
+      end
+    end
     resources :comments
   end
 end

@@ -3,6 +3,7 @@
   = f.input :image
   = f.input :description, as: :string
   = f.input :user_id, as: :hidden, input_html: { value:  current_user.id }
+  = f.input :participant_id, as: :hidden, input_html: { value:  current_user.id }
   %hr
   = f.simple_fields_for :sources do |u|
     = render 'source_fields', :f => u
