@@ -6,12 +6,6 @@ GIT
       activerecord (>= 3.1.0)
       railties (>= 3.1.0)
 
-GIT
-  remote: https://github.com/kaize/usefull_scopes.git
-  revision: b5dc29715f9a2afdba8e818cc56f20f75471f57f
-  specs:
-    usefull_scopes (0.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -58,6 +52,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
     chattyproc (1.0.0)
+    choice (0.1.6)
     ckeditor (4.0.2)
       mime-types
       orm_adapter
@@ -206,6 +201,11 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     rails_admin (0.4.3)
       bootstrap-sass (~> 2.2)
       builder (~> 3.0)
@@ -239,6 +239,7 @@ GEM
     remotipart (1.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-graphviz (1.0.9)
     ruby_parser (3.1.1)
       sexp_processor (~> 4.1)
     rubyzip (0.9.9)
@@ -321,6 +322,7 @@ DEPENDENCIES
   omniauth-vkontakte
   pg
   rails (= 3.2.11)
+  rails-erd
   rails_admin
   ransack
   ruby_parser
