@@ -6,14 +6,8 @@ GIT
       activerecord (>= 3.1.0)
       railties (>= 3.1.0)
 
-GIT
-  remote: https://github.com/kaize/usefull_scopes.git
-  revision: b5dc29715f9a2afdba8e818cc56f20f75471f57f
-  specs:
-    usefull_scopes (0.2.1)
-
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
@@ -54,6 +48,12 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     cancan (1.6.8)
+    capistrano (2.15.4)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -109,6 +109,7 @@ GEM
       rubyzip
     heroku-api (0.3.7)
       excon (~> 0.16.10)
+    highline (1.6.19)
     hike (1.2.1)
     hpricot (0.8.6)
     httpauth (0.2.0)
@@ -150,6 +151,10 @@ GEM
     multi_json (1.5.0)
     multipart-post (1.1.5)
     nested_form (0.3.1)
+    net-scp (1.1.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
     net-ssh (2.6.5)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
@@ -297,6 +302,7 @@ DEPENDENCIES
   ancestry
   better_errors
   cancan
+  capistrano
   carrierwave
   ckeditor
   cocoon
