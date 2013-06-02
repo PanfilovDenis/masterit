@@ -5,7 +5,8 @@ set :stages, %w(production staging)
 set :default_stage, "staging"
 
 set :rvm_type, :system
-set :rvm_ruby_string, 'ruby-1.9.3'
+set :rvm_ruby_string, 'ruby-1.9.3-p429@default'
+set :rvm_path, '/usr/local/rvm/'
 
 set :use_sudo, false
 set :deploy_via, :export

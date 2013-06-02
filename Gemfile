@@ -32,6 +32,9 @@ gem 'ckeditor'
 gem 'social-share-button'
 gem 'inkwell', :git => 'git://github.com/salkar/inkwell.git'
 gem 'capistrano'
+gem 'rvm-capistrano'
+gem 'capistrano_colors'
+gem 'whenever'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
