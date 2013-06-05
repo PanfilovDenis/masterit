@@ -14,6 +14,7 @@ set :ssh_options, :forward_agent => true
 
 set :scm, :git
 set :repository,  "git@github.com:PanfilovDenis/masterit.git"
+set :use_sudo, true
 
 default_run_options[:pty] = true
 
@@ -31,7 +32,6 @@ end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
 after 'deploy:update_code', 'deploy:assets:precompile'
-after 'deploy:symlink_db', 'deploy:symlink_backup'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:update", "deploy:cleanup"
 after "deploy:restart", "unicorn:stop"
