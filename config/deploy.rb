@@ -21,7 +21,7 @@ default_run_options[:pty] = true
 namespace :deploy do
   desc "Symlinks the database.yml"
   task :symlink_db, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{release_path}/config/database.yml.sample #{release_path}/config/database.yml"
   end
 
   desc "Seed database data"
@@ -34,4 +34,4 @@ before 'deploy:finalize_update', 'deploy:symlink_db'
 after 'deploy:update_code', 'deploy:assets:precompile'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:update", "deploy:cleanup"
-after "deploy:restart", "unicorn:stop"
+#after "deploy:restart", "unicorn:stop"
