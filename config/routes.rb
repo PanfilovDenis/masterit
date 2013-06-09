@@ -49,6 +49,10 @@ Masterit::Application.routes.draw do
         end
       end
       resources :users, only: [:index]
+        member do
+          get :download_pdf
+        end
+      end
       resources :plagiat_details, only: [:index]
       resources :experts, only: [:index, :show] do
         scope module: :experts do

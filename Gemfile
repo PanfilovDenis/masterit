@@ -36,6 +36,7 @@ gem 'rvm-capistrano'
 gem 'capistrano_colors'
 gem 'capistrano-unicorn'
 gem 'whenever'
+gem 'prawn', git: "git://github.com/sandal/prawn.git", submodules: true
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
