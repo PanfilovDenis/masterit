@@ -24,6 +24,15 @@ class Web::WorksController < Web::ApplicationController
     @like_count = eval(@work.users_ids_who_favorite_it)
   end
 
+  def download_pdf
+    report = UserReport.new
+    user = User.find(params[:id])
+    result = report.generate_pdf "Report"
+    send_data result, type: 'application/pdf', filename: report.pdf_filename(user)
+    pdf = Magick::ImageList.new(result)
+    pdf.write("report.jpg")
+  end
+
   def favorite
     work = Work.find(params[:work_id])
     current_user.favorite work

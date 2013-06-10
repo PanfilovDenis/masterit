@@ -17,7 +17,7 @@
               = "Название работы:" 
               = link_to work, work_path(work)
               %br
-              = "ФИО: #{work.user.last_name} #{work.user.first_name} #{work.user.patronymic} "
+              = "ФИО: #{work.user.last_name} #{work.user.first_name} #{work.user.patronymic} " if work.user.present?
               %br
               = "Регион: #{Region.find(work.region_id)}"
               %br
