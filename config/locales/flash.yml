@@ -22,9 +22,16 @@ ru:
               error: "Оценить не получилось"
         admin:
           competitions:
+            update:
+              success: "Конкурс успешно изменен"
+              error: "Ошибка при изменении конкурса"
             create:
               success: "Конкурс успешно создан"
               error: "Ошибка при создании конкурса"
-        works:
-        create:
-          success: "Работа успешно зарегистрирована"
+          works:
+            update:
+              success: "Работа успешно обновлена"
+            create:
+              success: "Работа успешно зарегистрирована"
+  
+        
