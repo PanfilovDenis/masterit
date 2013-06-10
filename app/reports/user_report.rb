@@ -11,9 +11,16 @@ class UserReport < Prawn::Document
       :italic => "#{font_path}/verdanai.ttf",
       :normal  => "#{font_path}/verdana.ttf" })
     font "Verdana", :size => 10
+    @bg = "#{RAILS_ROOT}/vendor/assets/images/bg.png"
   end
   def create_title
     text header, size: 12, style: :italic, align: :left
+  end
+  def create_body
+    pdf.image bg,
+      :at  => [0, Prawn::Document::PageGeometry::SIZES["A4"][1]],
+      :fit => Prawn::Document::PageGeometry::SIZES["A4"]
+    pdf.text "This is pdf with background image ready to fill in"
   end
   def create_footer(url)
     page_count.times do |i|
