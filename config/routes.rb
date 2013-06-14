@@ -139,6 +139,7 @@ Masterit::Application.routes.draw do
       collection do
         post :favorite
         post :unfavorite
+        get :download_png
       end
     end
     resources :comments

@@ -24,6 +24,15 @@ class Web::WorksController < Web::ApplicationController
     @like_count = eval(@work.users_ids_who_favorite_it)
   end
 
+  def download_png
+    report = UserReport.new
+    work = Work.find(params[:work_id])
+    result = report.generate_png work
+    send_data result, filename: report.png_filename(work)
+    #pdf = ::Magick::ImageList.new(result)
+    #pdf.write("report.png")
+  end
+
   def favorite
     work = Work.find(params[:work_id])
     current_user.favorite work

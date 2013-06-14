@@ -11,11 +11,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require cocoon
 //= require_tree
 //= require bootstrap-progressbar
+
 $(document).ready(function() {
   $('.progress .bar').progressbar();
 });
