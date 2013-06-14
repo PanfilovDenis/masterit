@@ -37,6 +37,8 @@ gem 'capistrano_colors'
 gem 'capistrano-unicorn'
 gem 'whenever'
 gem 'prawn', git: "git://github.com/sandal/prawn.git", submodules: true
+gem 'rmagick'
+gem 'skeptick'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

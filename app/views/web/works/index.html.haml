@@ -3,7 +3,7 @@
 
   - @works.each do |work|
     .span6
-      = link_to "Скачать сертификат", download_pdf_works_path(work)
+      = link_to "Скачать сертификат", download_png_works_path(work_id: work.id)
     .span6
       %h3= work.name
     .span2
