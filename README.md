@@ -75,7 +75,6 @@ https://github.com/PanfilovDenis/masterit/blob/feature/er-diagrams/erd.pdf
 
 В итоге вместо одного контроллера мы получили два (но может быть и больше если задача того потребует), но при этом все методы сгруппированы по вариантам использования.
 
-Kirill Mokevnin (c)
 
 ## Installation and running way
 ```sh
