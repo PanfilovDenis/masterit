@@ -29,14 +29,14 @@ class UserReport
       set    :pointsize, 40
       set    :fill, 'gradient:#37e-#007'
       write  'удостоверяет, что проект', left: 360, top: 442
-      write  "#{model.name}", left: 470, top: 528
+      write  "#{model.name}", left: 410, top: 528
       write  'принял участие в региональном конкурсе', left: 198, top: 704
       write  'компьютерного творчества детей и юношества', left: 150, top: 748
       write  'Мастер ИТ-2013', left: 420, top: 790
       write  'Автор/ы:', left: 508, top: 871
-      write  "#{model.user.first_name} #{model.user.last_name}, #{model.region.name}", left: 363, top: 916
+      write  "#{model.user.first_name} #{model.user.last_name}, #{model.region.name}", left: 240, top: 916
       write  'Научный/е руководитель/ли:', left: 340, top: 1000
-      #write  'ФИО', left: 546, top: 1044
+      write  'Макаров Павел Сергеевич', left: 365, top: 1044
       write  'Номер проекта', left: 443, top: 1141
       write  "в Едином Реестре Проектов: #{model.id}", left: 250, top: 1186
       apply  :blur, '0x0.7'
