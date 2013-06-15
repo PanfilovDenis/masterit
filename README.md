@@ -22,13 +22,13 @@ module CompetitionRepository
   end
 end
 ```
-Использование, теперь вместо ```ruby Completition.where(state: :started) ``` можно использовать более понятную форму ```ruby Completition.started ```
+Использование, теперь вместо ```Completition.where(state: :started) ``` можно использовать более понятную форму ```Completition.started ```
 Также туда помещаются любые классы с обращением в базу данных.
 
 #app/inputs 
 Тут содержатся кастомные инпуты для simple form. Иным образом там пишутся свои классы для отображения полей в симпл форм
 Пример: 
-```ruby =f.input :name as: :preview```
+```=f.input :name as: :preview```
   Используется во вьюхах.
 
 #app/types
